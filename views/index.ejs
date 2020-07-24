@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Knjige</title>
+</head>
+
+<body>
+
+    <header>
+        <!-- Jumbotron -->
+        <div class="jumbotron jumbotron-fluid text-center">
+            <h1 class="display-4"><%= title %></h1>
+            <div class="row">
+                <div class="col-6 offset-3">
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <input type="text" class="form-control" placeholder="Unesite naziv pisca">
+                                <button id="search_btn" class="btn btn-primary">Search</button>  
+                            </div>
+                        </div>
+                        <div id='greska' class="alert alert-danger">Unesite puno ime pisca! <a href="/">Izadji</a></div>
+                </div> 
+            </div><br>
+            <a href="/" class="btn btn-primary ">Pocetna Strana</a>
+            <!-- <a href='/pisci' class="btn btn-warning">O Piscima</a> -->
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div id="modalv">
+                <!-- Modal -->
+
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- slike -->
+            <div class="row homeView">
+                <% for(i=0; i<data.length; i++){ %>
+                <div class="col-4 mb-2 text-center">
+                    <img img-id="<%= data[i].id %>" src="<%= data[i].img_roman %>" alt=""><br>
+                    <button type="button" btn_id="<%= data[i].id %>" class="btn btn-danger btn-sm saznajVise"
+                        data-toggle="modal" data-target="#myModal">Saznaj
+                        Vise</button>
+                </div>
+                <% } %>
+            </div>
+            <!-- SEARCH -->
+            <div class="row" id="searchView">
+               
+            </div>
+        </div>
+        </div>
+    </section>
+    <aside>
+        <div class="head"></div>
+        <div class="info">
+            <h3></h3>
+            <p></p>
+        </div>
+
+    </aside>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
